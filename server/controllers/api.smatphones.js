@@ -14,7 +14,7 @@ function seedSmartphones(req,res){
     externalMemory : "-",
     internalMemory : "16gb",
     price : 10000000,
-    vendor : "Apple"
+    vendor : "Alex Mangga Dua"
 
   }, function(err,phone) {
     if (err) {
