@@ -27,10 +27,10 @@
   }
 
   $(document).ready(function(){
-    let name = $.url().param('name');
+    let id = $.url().param('id');
     // http://127.0.0.1:8080/single.html?id=5825841c578cd028de5f7742
     $.ajax({
-        url: `http://localhost:3000/api/smartphones/${name}`,
+        url: `http://localhost:3000/api/smartphones/${id}`,
         method: 'get',
         contentType: 'application/x-www-form-urlencoded',
         data: {},
