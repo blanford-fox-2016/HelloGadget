@@ -38,6 +38,9 @@
             <!-- Alert -->
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2" id="alert-message">
+                <div class="alert alert-success">
+                        Data is edited.
+                    </div>
                 </div>
             </div>
             <!-- Modal -->
@@ -62,10 +65,10 @@
                                         <input class="form-control" name="os" placeholder="Enter OS" type="text">
                                     </div>
                                     <div class="col-md-12" style="margin-bottom: 5px">
-                                        <input class="form-control" name="internal-memory" placeholder="Enter internal memory" type="text">
+                                        <input class="form-control" name="internalMemory" placeholder="Enter internal memory" type="text">
                                     </div>
                                     <div class="col-md-12" style="margin-bottom: 5px">
-                                        <input class="form-control" name="external-memory" placeholder="Enter external memory" type="text">
+                                        <input class="form-control" name="externalMemory" placeholder="Enter external memory" type="text">
                                     </div>
                                     <div class="col-md-12" style="margin-bottom: 5px">
                                         <input class="form-control" name="ram" placeholder="Enter RAM" type="text">
@@ -97,18 +100,18 @@
                         <button class="btn btn-md btn-danger" onclick="deleteData(this)"><span class="fa fa-trash"></span> Delete</button>
                         <div style="margin-top: 10px;">
                             <div class="col-md-6 col-md-offset-3">
-                                <div class="circle-avatar" style="background-image:url(http://s.tmocache.com/content/dam/tmo/en-p/cell-phones/apple-iphone-7/jet-black/stills/carousel-apple-iphone-7-jet-black-380x380-3.jpg)"></div>
+                                <div id="smartphone-image" class="circle-avatar" style="background-image:url(http://s.tmocache.com/content/dam/tmo/en-p/cell-phones/apple-iphone-7/jet-black/stills/carousel-apple-iphone-7-jet-black-380x380-3.jpg)"></div>
                                 <div>
                                     <h2>Specifications</h2>
-                                    <h4>OS: -</h4>
-                                    <h4>Internal Memory: -</h4>
-                                    <h4>External Memory: -</h4>
-                                    <h4>RAM: -</h4>
-                                    <h4>Camera: -</h4>
+                                    <h4 id="smartphone-os">OS: -</h4>
+                                    <h4 id="smartphone-internal-memory">Internal Memory: -</h4>
+                                    <h4 id="smartphone-external-memory">External Memory: -</h4>
+                                    <h4 id="smartphone-ram">RAM: -</h4>
+                                    <h4 id="smartphone-camera">Camera: -</h4>
                                     <hr>
-                                    <h2>Price Details</h2>
-                                    <h4>Vendor: -</h4>
-                                    <h4>Price: -</h4>
+                                    <h2 id="smartphone-price">Price Details</h2>
+                                    <h4 id="smartphone-vendor">Vendor: -</h4>
+                                    <h4 id="smartphone-price">Price: -</h4>
                                 </div>
                             </div>
                         </div>
