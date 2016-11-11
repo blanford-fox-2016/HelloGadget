@@ -43,6 +43,23 @@ describe("Test for smartphones", function () {
         })
     })
 
+    describe("Test if get smartphones by name working", function () {
+
+        it("Expect to returnlist of smartphones by name", function (done) {
+            chai.request(app)
+                .get('/api/smartphones/:name')
+                .end(function (err, res) {
+                    Smartphone.findOne({
+                        name: req.params.name
+                    }, function (err, data) {
+                        expect(res).to.have.status(200)
+                        expect(res.body.name).to.equal(data.name)
+                        done()
+                    })
+                })
+        })
+    })
+
     describe("Test if create smartphone working", function () {
 
         it("Expect to return smartphone that has been created", function (done) {
@@ -80,7 +97,7 @@ describe("Test for smartphones", function () {
 
         it("Expect to return true if delete smartphone working", function (done) {
 
-            Smartphone.findOne({}, {}, { sort: { '_id' : -1 } }, function (err, data) {
+            Smartphone.findOne( {_id: req.params.id}, function (err, data) {
                 chai.request(app)
                     .delete(`/api/smartphones/${data._id}`)
                     .end(function (err, res) {
@@ -107,7 +124,7 @@ describe("Test for smartphones", function () {
                 vendor: 'vendor update'
             }
 
-            Smartphone.findOne({}, {}, { sort: { 'userId' : -1 } }, function (err, data) {
+            Smartphone.findOne({}, {}, { sort: { 'updatedAt' : -1 } }, function (err, data) {
                 chai.request(app)
                     .put(`/api/user/${data._id}`)
                     .send(input)
