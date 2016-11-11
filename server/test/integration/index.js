@@ -33,13 +33,15 @@ describe("Test for smartphones", function () {
     describe("Test if get all smartphones working", function () {
 
         it("Expect to return all list of smartphones", function (done) {
-            chai.request(app)
-                .get('/api/smartphones')
-                .end(function (err, res) {
-                    expect(res).to.have.status(200)
-                    expect(res.body[0].name).to.equal('iphone 7')
-                    done()
-                })
+            Smartphone.findOne({}, {}, { sort: { 'createdAt' : 1 } }, function (err, data) {
+                chai.request(app)
+                    .get('/api/smartphones')
+                    .end(function (err, res) {
+                        expect(res).to.have.status(200)
+                        expect(res.body[0].name).to.equal(data.name)
+                        done()
+                    })
+            })
         })
     })
 
