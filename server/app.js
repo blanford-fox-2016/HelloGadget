@@ -1,10 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+require('dotenv').config()
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const cors = require('cors')
 
+const mongoose = require('mongoose')
+mongoose.connect(process.env.DATABASE)
+mongoose.Promise = global.Promise
 var routes = require('./routes/api.smartphones');
 
 var app = express();
@@ -19,6 +24,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/smartphones', routes);
