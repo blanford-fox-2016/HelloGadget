@@ -177,6 +177,16 @@ function getAllSmartphones(req,res){
 
 }
 
+/* get 1 smartphone by id */
+function getSmartphonesById (req, res) {
+  console.log('id : ',req.params.id);
+  Phone.findById(req.params.id, function(err, user){
+    console.log(user);
+    if(err) res.json(err)
+    res.json(user)
+  })
+}
+
 module.exports = {
 
   seedSmartphones:seedSmartphones,
@@ -185,6 +195,7 @@ module.exports = {
   getOneSmartphones:getOneSmartphones,
   deleteAllSmartphones:deleteAllSmartphones,
   deleteOneSmartphones:deleteOneSmartphones,
-  updateOneSmartphones:updateOneSmartphones
+  updateOneSmartphones:updateOneSmartphones,
+  getSmartphonesById:getSmartphonesById
 
 }
