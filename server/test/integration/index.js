@@ -1,7 +1,7 @@
 const app = require('../../app')
 
 //REQUIRE MODELS
-const Smartphone = require('../../models/smartphones')
+const Smartphone = require('../../models/models.smartphones')
 
 //REQUIRE CHAI AND MOCHA
 const mocha = require('mocha')
@@ -37,7 +37,7 @@ describe("Test for smartphones", function () {
                 .get('/api/smartphones')
                 .end(function (err, res) {
                     expect(res).to.have.status(200)
-                    expect(res.body[0].name).to.equal('smartphone a')
+                    expect(res.body[0].name).to.equal('iphone 7')
                     done()
                 })
         })
@@ -47,10 +47,10 @@ describe("Test for smartphones", function () {
 
         it("Expect to returnlist of smartphones by name", function (done) {
             chai.request(app)
-                .get('/api/smartphones/:name')
+                .get('/api/smartphones/iphone 7')
                 .end(function (err, res) {
                     Smartphone.findOne({
-                        name: req.params.name
+                        name: res.body.name
                     }, function (err, data) {
                         expect(res).to.have.status(200)
                         expect(res.body.name).to.equal(data.name)
@@ -97,11 +97,7 @@ describe("Test for smartphones", function () {
 
         it("Expect to return true if delete smartphone working", function (done) {
 
-<<<<<<< HEAD
-            Smartphone.findOne( {_id: req.params.id}, function (err, data) {
-=======
             Smartphone.findOne({}, {}, { sort: { 'createdAt' : -1 } }, function (err, data) {
->>>>>>> b77ee2a268c89172ecd5b52721761ef1f49a28ce
                 chai.request(app)
                     .delete(`/api/smartphones/${data._id}`)
                     .end(function (err, res) {
@@ -128,20 +124,25 @@ describe("Test for smartphones", function () {
                 vendor: 'vendor update'
             }
 
-            Smartphone.findOne({}, {}, { sort: { 'updatedAt' : -1 } }, function (err, data) {
+            Smartphone.findOne({}, {}, { sort: { 'createdAt' : -1 } }, function (err, data) {
                 chai.request(app)
-                    .put(`/api/user/${data._id}`)
+                    .put(`/api/smartphones/${data._id}`)
                     .send(input)
                     .end(function (err, res) {
-                        expect(res).to.have.status(200)
-                        expect(res.body.name).to.equal(data.name)
-                        expect(res.body.os).to.equal(data.os)
-                        expect(res.body.internalMemory).to.equal(data.internalMemory)
-                        expect(res.body.externalMemory).to.equal(data.externalMemory)
-                        expect(res.body.camera).to.equal(data.camera)
-                        expect(res.body.price).to.equal(data.price)
-                        expect(res.body.vendor).to.equal(data.vendor)
-                        done()
+
+                        Smartphone.findOne({
+                            _id: data._id
+                        }, function (err2, data2) {
+                            expect(res).to.have.status(200)
+                            expect(res.body.name).to.equal(data2.name)
+                            expect(res.body.os).to.equal(data2.os)
+                            expect(res.body.internalMemory).to.equal(data2.internalMemory)
+                            expect(res.body.externalMemory).to.equal(data2.externalMemory)
+                            expect(res.body.camera).to.equal(data2.camera)
+                            expect(res.body.price).to.equal(data2.price)
+                            expect(res.body.vendor).to.equal(data2.vendor)
+                            done()
+                        })
                     })
             })
         })
