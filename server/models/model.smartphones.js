@@ -16,7 +16,7 @@ var smartPhoneSchema = mongoose.Schema({
 });
 
 
-var smartPhone = mongoose.model('smartPhone', smartPhoneSchema);
+var smartPhones = mongoose.model('smartPhone', smartPhoneSchema);
 
 // make this available to our users in our Node applications
-module.exports = smartPhone;
+module.exports = smartPhones;
