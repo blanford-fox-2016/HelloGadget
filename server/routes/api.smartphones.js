@@ -24,4 +24,4 @@ router.delete('/:id', controller.deleteOneSmartphones);
 /* Update smartphones by id. */
 router.put('/:id', controller.updateOneSmartphones);
 
-module.exports = router;
+ module.exports = router;
