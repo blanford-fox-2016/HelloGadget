@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 var smartPhoneSchema = mongoose.Schema({
     name : { type: String, unique: true },
     os : String,
-    ram : Number,
-    internalMemory : Number,
-    externalMemory : Number,
-    camera : Number,
+    ram : String,
+    internalMemory : String,
+    externalMemory : String,
+    camera : String,
     price : Number,
     vendor : String
 
