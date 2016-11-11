@@ -21,16 +21,16 @@
         contentType: 'application/x-www-form-urlencoded',
         data: {},
         success: function(data) {
-          window.location.href = "http://localhost:3000/api/smartphones/";
+          window.location.href = "http://127.0.0.1:8080/home.html";
         }
       })
   }
 
   $(document).ready(function(){
-    let name = $.url().param('name');
+    let id = $.url().param('id');
     // http://127.0.0.1:8080/single.html?id=5825841c578cd028de5f7742
     $.ajax({
-        url: `http://localhost:3000/api/smartphones/${name}`,
+        url: `http://localhost:3000/api/smartphones/id/${id}`,
         method: 'get',
         contentType: 'application/x-www-form-urlencoded',
         data: {},
@@ -43,7 +43,8 @@
           $('#smartphone-camera').text("camera : " + data.camera);
           $('#smartphone-price').text("price : " + data.price);
           $('#smartphone-vendor').text("vendor : " + data.vendor);
-          $("#button-delete").attr('onclick', `deleteData(${data._id})`)
+          $("#button-delete").attr('onclick', `deleteData('${data._id}')`)
+          $('#smartphone-image').replaceWith(`<div id="smartphone-image" class="circle-avatar" style="background-image:url(${data.image})"></div>`)
         }
       })
   });
@@ -161,5 +162,6 @@
 
 <script src="./libraries/bootstrap.min.js"></script>
 <script type="text/javascript" src="./javascripts/script.smartphone.js"></script>
+<script type="text/javascript" src="./javascripts/scripts.update.js"></script>
 
 </html>

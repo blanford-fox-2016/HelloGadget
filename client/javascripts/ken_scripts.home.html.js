@@ -28,7 +28,7 @@ function processAddData (pointer, e) {
             <h4 class="smartphone-name">${new_data.name}</h4>
             <p class="smartphone-price">Rp. ${new_data.price}</p>
             <p class="smartphone-vendor">${new_data.vendor}</p>
-            <a href="single.html" class="btn btn-md btn-default" data-id="" onclick="showData(${new_data._id})"><span class="fa fa-eye"></span> View Details</a>
+            <a href="single.html?id=${new_data._id}" class="btn btn-md btn-default" data-id="" onclick="showData(${new_data._id})"><span class="fa fa-eye"></span> View Details</a>
         </div>
       `
       $('#alert-message').empty()
