@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var smartPhoneSchema = mongoose.Schema({
-    name : { type: String, unique: true },
+    name : String,
     os : String,
     ram : String,
     internalMemory : String,

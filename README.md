@@ -66,6 +66,7 @@ npm install chai-http --save
 | api/smartphones/seed  | GET       | Create dummy smartphones data     |
 | api/smartphones       | GET       | Get all smartphones               |
 | api/smartphones/:name | GET       | Get smartphone by name            |
+| api/smartphones       | POST      | Create smartphone                 |
 | api/smartphones       | DELETE    | Delete all smartphones            |
 | api/smartphones/:id   | DELETE    | Delete smartphones by id          |
 | api/smartphones/:id   | PUT       | Update smartphones by id          |
