@@ -9,7 +9,8 @@ var smartPhoneSchema = mongoose.Schema({
     externalMemory : String,
     camera : String,
     price : Number,
-    vendor : String
+    vendor : String,
+    image : String
 
 },{
   timestamps : true
