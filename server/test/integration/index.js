@@ -97,7 +97,7 @@ describe("Test for smartphones", function () {
 
         it("Expect to return true if delete smartphone working", function (done) {
 
-            Smartphone.findOne( {_id: req.params.id}, function (err, data) {
+            Smartphone.findOne({}, {}, { sort: { 'createdAt' : -1 } }, function (err, data) {
                 chai.request(app)
                     .delete(`/api/smartphones/${data._id}`)
                     .end(function (err, res) {
