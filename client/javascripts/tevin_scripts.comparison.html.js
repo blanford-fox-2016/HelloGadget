@@ -1,4 +1,5 @@
 function searchSmartPhone1(){
+	$('#smartphone-1-view').empty()
 	var name = $('input#smartphone-1-input').val().toLowerCase()
 
 	$.ajax({
@@ -31,6 +32,7 @@ function searchSmartPhone1(){
 }
 
 function searchSmartPhone2(){
+	$('#smartphone-2-view').empty()
 	var name = $('input#smartphone-2-input').val().toLowerCase()
 
 	$.ajax({
