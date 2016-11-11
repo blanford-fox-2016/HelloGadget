@@ -6,6 +6,9 @@ const controller = require('../controllers/api.smartphones')
 /* Create dummy smartphones data. */
 router.get('/seed', controller.seedSmartphones);
 
+/* Create 1 smartphone. */
+router.post('/', controller.addNewSmartphones)
+
 /* Get all smartphones. */
 router.get('/', controller.getAllSmartphones);
 
