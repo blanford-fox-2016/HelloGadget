@@ -1,7 +1,7 @@
 function showEditData(id) {
-    let id = $.url().param('id');
+    let smartid = $.url().param('id');
     $.ajax({
-        url: `http://localhost:3000/api/smartphones/id/${id}`,
+        url: `http://localhost:3000/api/smartphones/id/${smartid}`,
         method: "get",
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
@@ -51,7 +51,7 @@ $(document).on('click', 'button[id="add-smartphone-button"]', function(e) {
             console.log(data)
             let html = `
                         <div class="smarthphone-details">
-                        <h1>iPhone 7</h1>
+                        <h1 id="title">${data.name}</h1>
                         <button class="btn btn-md btn-warning" data-toggle="modal" data-target="#editData" onclick="showEditData(this)"><span class="fa fa-pencil"></span> Edit</button>
                         <button class="btn btn-md btn-danger delete" onclick="deleteData('${data._id}')" id="button-delete"><span class="fa fa-trash"></span> Delete</button>
                         <div style="margin-top: 10px;">
@@ -59,14 +59,14 @@ $(document).on('click', 'button[id="add-smartphone-button"]', function(e) {
                                 <div id="smartphone-image" class="circle-avatar" style="background-image:url(${data.image})"></div>
                                 <div>
                                     <h2>Specifications</h2>
-                                    <h4 id="smartphone-os">${data.os}</h4>
-                                    <h4 id="smartphone-internal-memory">${data.internalMemory}</h4>
-                                    <h4 id="smartphone-external-memory">${data.externalMemory}</h4>
-                                    <h4 id="smartphone-ram">${data.ram}</h4>
-                                    <h4 id="smartphone-camera">${data.camera}</h4>
+                                    <h4 id="smartphone-os">OS: ${data.os}</h4>
+                                    <h4 id="smartphone-internal-memory">internalMemory: ${data.internalMemory}</h4>
+                                    <h4 id="smartphone-external-memory">externalMemory: ${data.externalMemory}</h4>
+                                    <h4 id="smartphone-ram">ram: ${data.ram}</h4>
+                                    <h4 id="smartphone-camera">camera: ${data.camera}</h4>
                                     <hr>
-                                    <h2 id="smartphone-price">${data.price}</h2>
-                                    <h4 id="smartphone-vendor">${data.vendor}</h4>
+                                    <h2 id="smartphone-price">price: ${data.price}</h2>
+                                    <h4 id="smartphone-vendor">vendor: ${data.vendor}</h4>
                                 </div>
                             </div>
                         </div>
