@@ -1,7 +1,7 @@
 function showEditData(id) {
     let id = $.url().param('id');
     $.ajax({
-        url: `http://localhost:3000/api/smartphones/${id}`,
+        url: `http://localhost:3000/api/smartphones/id/${id}`,
         method: "get",
         contentType: 'application/x-www-form-urlencoded',
         success: function (data) {
@@ -32,7 +32,7 @@ $(document).on('click', 'button[id="add-smartphone-button"]', function(e) {
     e.preventDefault()
     let id = $.url().param('id');
     $.ajax({
-        url: `http://localhost:3000/api/smartphones/${id}`,
+        url: `http://localhost:3000/api/smartphones/id/${id}`,
         method: "put",
         contentType: 'application/x-www-form-urlencoded',
         data: {
