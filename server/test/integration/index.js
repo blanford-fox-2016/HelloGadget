@@ -43,6 +43,26 @@ describe("Test for smartphones", function () {
         })
     })
 
+    describe("Test if get smartphones by id working", function () {
+
+        it("Expect to returnlist of smartphones by id", function (done) {
+
+            Smartphone.findOne({}, {}, { sort: { 'createdAt' : -1 } }, function (err, data) {
+                chai.request(app)
+                    .get(`/api/smartphones/id/${data._id}`)
+                    .end(function (err, res) {
+                        Smartphone.findOne({
+                            name: res.body.name
+                        }, function (err, data) {
+                            expect(res).to.have.status(200)
+                            expect(res.body.name).to.equal(data.name)
+                            done()
+                        })
+                    })
+            })
+        })
+    })
+
     describe("Test if get smartphones by name working", function () {
 
         it("Expect to returnlist of smartphones by name", function (done) {
