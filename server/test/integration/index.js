@@ -33,15 +33,14 @@ describe("Test for smartphones", function () {
     describe("Test if get all smartphones working", function () {
 
         it("Expect to return all list of smartphones", function (done) {
-            Smartphone.findOne({}, {}, { sort: { 'createdAt' : 1 } }, function (err, data) {
-                chai.request(app)
-                    .get('/api/smartphones')
-                    .end(function (err, res) {
-                        expect(res).to.have.status(200)
-                        expect(res.body[0].name).to.equal(data.name)
-                        done()
-                    })
-            })
+              chai.request(app)
+                  .get('/api/smartphones')
+                  .end(function (err, res) {
+                      expect(res.body).that.is.an('array')
+                      expect(res).to.have.status(200)
+                      expect(res.body.length).to.equal(5)
+                      done()
+                })
         })
     })
 
@@ -50,9 +49,11 @@ describe("Test for smartphones", function () {
         it("Expect to returnlist of smartphones by id", function (done) {
 
             Smartphone.findOne({}, {}, { sort: { 'createdAt' : -1 } }, function (err, data) {
+
                 chai.request(app)
                     .get(`/api/smartphones/id/${data._id}`)
                     .end(function (err, res) {
+
                         Smartphone.findOne({
                             name: res.body.name
                         }, function (err, data) {
@@ -170,4 +171,3 @@ describe("Test for smartphones", function () {
         })
     })
 })
-
