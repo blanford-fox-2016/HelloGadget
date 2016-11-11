@@ -131,3 +131,15 @@ function addNewSmartphones(req,res){
   })
 
 }
+
+module.exports = {
+  
+  seedSmartphones:seedSmartphones,
+  addNewSmartphones:addNewSmartphones,
+  getAllSmartphones:getAllSmartphones,
+  getOneSmartphones:getOneSmartphones,
+  deleteAllSmartphones:deleteAllSmartphones,
+  deleteOneSmartphones:deleteOneSmartphones,
+  updateOneSmartphones:updateOneSmartphones
+
+}
