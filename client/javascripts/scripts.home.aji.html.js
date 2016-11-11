@@ -17,7 +17,7 @@ $.ajax({
                       <h4 class="smartphone-name">${data[i].name}</h4>
                       <p class="smartphone-price">${data[i].price}</p>
                       <p class="smartphone-vendor">${data[i].vendor}</p>
-                      <a href="single.html/?id${data[i]._id}=" class="btn btn-md btn-default" data-id="" onclick="showData(this)"><span class="fa fa-eye"></span> View Details</a>
+                      <a href="single.html/?id=${data[i]._id}" class="btn btn-md btn-default" data-id="" onclick="showData(this)"><span class="fa fa-eye"></span> View Details</a>
                   </div>
                 `
     }
