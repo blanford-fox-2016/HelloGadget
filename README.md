@@ -56,100 +56,20 @@ npm install chai --save
 npm install chai-http --save
 ```
 
-## Models
-
-### questions
-
-```
-const Question = new Schema({
-    createdBy: Number,
-    questionId: Number,
-    title: {
-        type: String,
-        required: true
-    },
-    content: {
-        type: String,
-        required: true
-    },
-    votes: [
-        {
-            type: Number,
-            foreignField: 'userId',
-            ref: 'users'
-        }
-    ],
-    answers: [
-        {
-            answerId: Number,
-            createdBy: Number,
-            answer: {
-                type: String,
-                required: true
-            },
-            votes: [
-                {
-                    type: Number,
-                    foreignField: 'userId',
-                    ref: 'users'
-                }
-            ]
-        }
-    ]
-})
-```
-
-### users
-
-```
-const User = new Schema({
-    userId: Number,
-    name: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true,
-    }
-    email: {
-        type: String,
-        required: true,
-        validate: {
-            validator: function(email){
-                return /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(email)
-            },
-            message: ''Wrong email format
-        }
-    }
-})
-```
 
 ## Routing
 
 ### API Smartphone
 
-| Endpoint                  | HTTP      | Description                       |
-| ----------                | -----     | ------------                      |
-| api/question/seed         | GET       | Create Dummy Question Data        |
-| api/question              | GET       | Get All Question                  |
-| api/question              | DELETE    | Delete All Question               |
-| api/question/:questionId  | DELETE    | Delete Question By questionId     |
-| api/question/:questionId  | PUT       | Update Question By questionId     |
+| Endpoint              | HTTP      | Description                       |
+| ----------            | -----     | ------------                      |
+| api/smartphones/seed  | GET       | Create dummy smartphones data     |
+| api/smartphones       | GET       | Get all smartphones               |
+| api/smartphones/:name | GET       | Get smartphone by name            |
+| api/smartphones       | DELETE    | Delete all smartphones            |
+| api/smartphones/:id   | DELETE    | Delete smartphones by id          |
+| api/smartphones/:id   | PUT       | Update smartphones by id          |
 
-### API Answer
-
-| Endpoint                  | HTTP      | Description                 |
-| ----------                | -----     | ------------                |
-| api/answer/seed           | GET       | Create Dummy Answer Data    |
-| api/answer                | GET       | Get All Answer              |
-| api/answer                | DELETE    | Delete All Answer           |
-| api/answer/:questionId    | DELETE    | Delete Answer By answerId   |
-| api/answer/:questionId    | PUT       | Update Answer By answerId   |
 
 ## Client
 
