@@ -133,7 +133,7 @@ function addNewSmartphones(req,res){
 }
 
 module.exports = {
-  
+
   seedSmartphones:seedSmartphones,
   addNewSmartphones:addNewSmartphones,
   getAllSmartphones:getAllSmartphones,
