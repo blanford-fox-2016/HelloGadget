@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 var smartPhoneSchema = mongoose.Schema({
     name : { type: String, unique: true },
     os : String,
-    ram : Number,
-    internalMemory : Number,
-    externalMemory : Number,
-    camera : Number,
+    ram : String,
+    internalMemory : String,
+    externalMemory : String,
+    camera : String,
     price : Number,
     vendor : String
 
@@ -16,7 +16,7 @@ var smartPhoneSchema = mongoose.Schema({
 });
 
 
-var smartPhone = mongoose.model('smartPhone', smartPhoneSchema);
+var smartPhones = mongoose.model('smartPhone', smartPhoneSchema);
 
 // make this available to our users in our Node applications
-module.exports = smartPhone;
+module.exports = smartPhones;
