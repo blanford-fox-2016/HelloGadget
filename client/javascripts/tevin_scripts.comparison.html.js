@@ -1,5 +1,5 @@
 function searchSmartPhone1(){
-	var name = $('input#smartphone-1-input').val()
+	var name = $('input#smartphone-1-input').val().toLowerCase()
 
 	$.ajax({
             url: `http://localhost:3000/api/smartphones/${name}`,
@@ -31,7 +31,7 @@ function searchSmartPhone1(){
 }
 
 function searchSmartPhone2(){
-	var name = $('input#smartphone-2-input').val()
+	var name = $('input#smartphone-2-input').val().toLowerCase()
 
 	$.ajax({
             url: `http://localhost:3000/api/smartphones/${name}`,

@@ -9,7 +9,7 @@ function processAddData (pointer, e) {
   $.post({
     url : 'http://localhost:3000/api/smartphones',
     data : {
-        name : $('input[name="name"]').val(),
+        name : $('input[name="name"]').val().toLowerCase(),
         camera : $('input[name="camera"]').val(),
         os : $('input[name="os"]').val(),
         ram : $('input[name="ram"]').val(),
