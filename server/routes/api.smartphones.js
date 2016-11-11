@@ -12,8 +12,12 @@ router.post('/', controller.addNewSmartphones)
 /* Get all smartphones. */
 router.get('/', controller.getAllSmartphones);
 
+
 /* Get smartphone by name. */
 router.get('/:name', controller.getOneSmartphones);
+
+/* Get smartphone by id. */
+router.get('/id/:id', controller.getSmartphonesById);
 
 /* 	Delete all smartphones. */
 router.delete('/', controller.deleteAllSmartphones);
