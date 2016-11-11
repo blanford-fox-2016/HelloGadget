@@ -1,5 +1,6 @@
 $('document').ready(function(){
-    processAddData()
+
+  processAddData()
 })
 
 function processAddData (pointer, e) {
@@ -30,8 +31,13 @@ function processAddData (pointer, e) {
             <a href="single.html" class="btn btn-md btn-default" data-id="" onclick="showData(${new_data._id})"><span class="fa fa-eye"></span> View Details</a>
         </div>
       `
-      
+      $('#alert-message').empty()
+      $('#alert-message').append(`
+        <div class="alert alert-success">
+              Data is inserted.
+        </div>`)
       $('#smartphone-list').append(appendHTML)
+      $('#add-smartphone-form')[0].reset()
       $('#addData').modal("hide")
     }
   })
