@@ -16,6 +16,7 @@ function showEditData(id) {
             $('input[name="camera"]').val(data.camera)
             $('input[name="price"]').val(data.price)
             $('input[name="vendor"]').val(data.vendor)
+            $('#smartphone-image').replaceWith(`<div id="smartphone-image" class="circle-avatar" style="background-image:url(${data.image})"></div>`)
 
             var temp = $("input[name='answerId']").val()
             if ( typeof temp != "undefined") {
@@ -32,7 +33,7 @@ $(document).on('click', 'button[id="add-smartphone-button"]', function(e) {
     e.preventDefault()
     let id = $.url().param('id');
     $.ajax({
-        url: `http://localhost:3000/api/smartphones/id/${id}`,
+        url: `http://localhost:3000/api/smartphones/${id}`,
         method: "put",
         contentType: 'application/x-www-form-urlencoded',
         data: {
@@ -52,10 +53,10 @@ $(document).on('click', 'button[id="add-smartphone-button"]', function(e) {
                         <div class="smarthphone-details">
                         <h1>iPhone 7</h1>
                         <button class="btn btn-md btn-warning" data-toggle="modal" data-target="#editData" onclick="showEditData(this)"><span class="fa fa-pencil"></span> Edit</button>
-                        <button class="btn btn-md btn-danger" onclick="deleteData(this)"><span class="fa fa-trash"></span> Delete</button>
+                        <button class="btn btn-md btn-danger delete" onclick="deleteData('${data._id}')" id="button-delete"><span class="fa fa-trash"></span> Delete</button>
                         <div style="margin-top: 10px;">
                             <div class="col-md-6 col-md-offset-3">
-                                <div id="smartphone-image" class="circle-avatar" style="background-image:url(http://s.tmocache.com/content/dam/tmo/en-p/cell-phones/apple-iphone-7/jet-black/stills/carousel-apple-iphone-7-jet-black-380x380-3.jpg)"></div>
+                                <div id="smartphone-image" class="circle-avatar" style="background-image:url(${data.image})"></div>
                                 <div>
                                     <h2>Specifications</h2>
                                     <h4 id="smartphone-os">${data.os}</h4>
@@ -66,7 +67,6 @@ $(document).on('click', 'button[id="add-smartphone-button"]', function(e) {
                                     <hr>
                                     <h2 id="smartphone-price">${data.price}</h2>
                                     <h4 id="smartphone-vendor">${data.vendor}</h4>
-                                    <h4 id="smartphone-price">${data.price}</h4>
                                 </div>
                             </div>
                         </div>
