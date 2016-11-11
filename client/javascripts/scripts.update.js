@@ -58,15 +58,15 @@ $(document).on('click', 'button[id="add-smartphone-button"]', function(e) {
                                 <div id="smartphone-image" class="circle-avatar" style="background-image:url(http://s.tmocache.com/content/dam/tmo/en-p/cell-phones/apple-iphone-7/jet-black/stills/carousel-apple-iphone-7-jet-black-380x380-3.jpg)"></div>
                                 <div>
                                     <h2>Specifications</h2>
-                                    <h4 id="smartphone-os">OS: -</h4>
-                                    <h4 id="smartphone-internal-memory">Internal Memory: -</h4>
-                                    <h4 id="smartphone-external-memory">External Memory: -</h4>
-                                    <h4 id="smartphone-ram">RAM: -</h4>
-                                    <h4 id="smartphone-camera">Camera: -</h4>
+                                    <h4 id="smartphone-os">${data.os}</h4>
+                                    <h4 id="smartphone-internal-memory">${data.internalMemory}</h4>
+                                    <h4 id="smartphone-external-memory">${data.externalMemory}</h4>
+                                    <h4 id="smartphone-ram">${data.ram}</h4>
+                                    <h4 id="smartphone-camera">${data.camera}</h4>
                                     <hr>
-                                    <h2 id="smartphone-price">Price Details</h2>
-                                    <h4 id="smartphone-vendor">Vendor: -</h4>
-                                    <h4 id="smartphone-price">Price: -</h4>
+                                    <h2 id="smartphone-price">${data.price}</h2>
+                                    <h4 id="smartphone-vendor">${data.vendor}</h4>
+                                    <h4 id="smartphone-price">${data.price}</h4>
                                 </div>
                             </div>
                         </div>
